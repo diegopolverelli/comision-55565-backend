@@ -1,0 +1,19 @@
+
+let array1=[
+    {
+        nombre:'Martina',
+        id:1
+    },
+    {
+        nombre:'Ernesto',
+        id:2
+    },
+    {
+        nombre:'Jimena',
+        id:3
+    },
+    {
+        nombre:'Lorena',
+        id:4
+    },
+]
