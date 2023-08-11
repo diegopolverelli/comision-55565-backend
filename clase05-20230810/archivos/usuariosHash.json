@@ -1,0 +1,18 @@
+[
+     {
+          "nombre": "Gabriel",
+          "apellido": "Medina",
+          "email": "gabymedina@hotmail.com",
+          "clave": "8e14dbdf2af4d0e0970f2bb16d380315",
+          "password": "02f3d2d651513fb90f06a1ff5246338f8330b9b0f4bafaa516cb952804c2abea",
+          "id": 1
+     },
+     {
+          "nombre": "Mario",
+          "apellido": "Santos",
+          "email": "disculpefuegotiene@hotmail.com",
+          "clave": "b44f5df0c1e820ce9467ffec34ecf700",
+          "password": "c07f89bec6bde4868ae027653164b50013045027afa6e271200e7b8e1eeec394",
+          "id": 2
+     }
+]
