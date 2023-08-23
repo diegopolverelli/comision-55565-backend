@@ -1,0 +1,27 @@
+[
+     {
+          "id": 2,
+          "nombre": "Anibal",
+          "apellido": "Smith"
+     },
+     {
+          "id": 3,
+          "nombre": "Mario",
+          "apellido": "Baracus"
+     },
+     {
+          "id": 4,
+          "nombre": "Amy",
+          "apellido": "-"
+     },
+     {
+          "id": 5,
+          "nombre": "Murdock",
+          "apellido": "-"
+     },
+     {
+          "id": 6,
+          "nombre": "Face",
+          "apellido": "-"
+     }
+]
