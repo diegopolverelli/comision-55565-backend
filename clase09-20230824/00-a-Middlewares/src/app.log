@@ -1,0 +1,20 @@
+Fri, 25 Aug 2023 00:15:44 GMT - url: / - metodo: GET - usuario: diego
+Fri, 25 Aug 2023 00:15:45 GMT - url: / - metodo: GET - usuario: diego
+Fri, 25 Aug 2023 00:15:46 GMT - url: / - metodo: GET - usuario: diego
+Fri, 25 Aug 2023 00:15:49 GMT - url: /saludo - metodo: GET - usuario: diego
+Fri, 25 Aug 2023 00:15:54 GMT - url: /saludo?nombre=Magdalena&apellido=Quiroz - metodo: GET - usuario: diego
+Fri, 25 Aug 2023 00:15:58 GMT - url: /saludo?nombre=Musan&apellido=Quiroz - metodo: GET - usuario: diego
+Fri, 25 Aug 2023 00:16:00 GMT - url: /saludo?nombre=Musan&apellido=Quiroz - metodo: GET - usuario: diego
+Fri, 25 Aug 2023 00:16:07 GMT - url: /saludo?nombre=Musan&apellido=Kibutsuji - metodo: GET - usuario: diego
+Fri, 25 Aug 2023 00:16:14 GMT - url: /api/villanos - metodo: GET - usuario: diego
+Fri, 25 Aug 2023 00:16:15 GMT - url: /api/villanos - metodo: GET - usuario: diego
+Fri, 25 Aug 2023 00:16:16 GMT - url: /api/villanos - metodo: GET - usuario: diego
+Fri, 25 Aug 2023 00:16:16 GMT - url: /api/villanos - metodo: GET - usuario: diego
+Fri, 25 Aug 2023 00:16:19 GMT - url: / - metodo: GET - usuario: diego
+Fri, 25 Aug 2023 00:19:53 GMT - url: / - metodo: GET - usuario: diego
+***ERROR*** - Fri, 25 Aug 2023 00:19:53 GMT - url: / - metodo: GET - usuario: diego
+Fri, 25 Aug 2023 00:19:56 GMT - url: /saludo - metodo: GET - usuario: diego
+Fri, 25 Aug 2023 00:20:01 GMT - url: /api/villanos - metodo: GET - usuario: diego
+Fri, 25 Aug 2023 00:20:06 GMT - url: / - metodo: GET - usuario: diego
+***ERROR*** - Fri, 25 Aug 2023 00:20:06 GMT - url: / - metodo: GET - usuario: diego
+Fri, 25 Aug 2023 00:20:09 GMT - url: /saludo - metodo: GET - usuario: diego
