@@ -1,0 +1,38 @@
+<h4>Heroes Page:</h4>
+<a href="/heroes">Actualiza Heroes</a>
+<hr>
+<h5>{{heroe}}</h5>
+
+{{#if esMarvel}}
+    <ul>
+        <li>
+            Identidad: {{identidad}}
+        </li>
+        <li>
+            Equipo: {{equipo}}
+        </li>
+        <li>
+            Empresa: {{empresa}}
+        </li>
+        <li>
+            Poderes:
+            <ol>
+                {{#each poderes}}
+                    <li>{{this}}</li>
+                {{/each}}
+            </ol>
+        </li>
+        <li>
+            Enemigos:
+            <ol>
+                {{#each enemigos}}
+                    <li>{{this.name}}</li>
+                {{/each}}
+            </ol>
+        </li>
+
+    </ul>
+{{else}}
+    <p>El heroe pertenece a DC. No existen datos</p>
+{{/if}}
+
