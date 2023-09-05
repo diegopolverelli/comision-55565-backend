@@ -1,0 +1,11 @@
+{{>header}}
+{{>menu}}
+
+<h3>Registro Usuarios</h3>
+<hr>
+<form action="/api/usuarios" method="post">
+    <input type="text" placeholder="nombre" name="nombre">
+    <input type="email" placeholder="email" name="email">
+    <input type="password" placeholder="clave" name="password">
+    <input type="submit" value="Registrar">
+</form>
