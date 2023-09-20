@@ -1,0 +1,27 @@
+<h3>Paginación con Mongoose</h3>
+<hr>
+<h4>Usuarios:</h4>
+<ul>
+    {{#each usuarios}}
+        <li>
+            {{this.code}}) {{this.first_name}} {{this.last_name}} - email: {{this.email}}
+        </li>
+    {{/each}}
+</ul>
+<br>
+
+<a href="/usuarios?pagina=1">Pág.1</a>
+
+{{#if hasPrevPage}}
+    <a href="/usuarios?pagina={{prevPage}}">Prev.Pág.</a>
+{{else}}
+    <span>Prev.Pág.</span>
+{{/if}}
+
+{{#if hasNextPage}}
+    <a href="/usuarios?pagina={{nextPage}}">Next.Pág.</a>
+{{else}}
+    <span>Next.Pág.</span>
+{{/if}}
+
+<a href="/usuarios?pagina={{totalPages}}">Ult.Pág</a>
