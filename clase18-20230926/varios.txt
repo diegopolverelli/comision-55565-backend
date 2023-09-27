@@ -1,0 +1,97 @@
+https://github.com/diegopolverelli/Programacion-Backend-51080-ejercicios-clase
+
+let usuarios=[
+    {
+        nombre:'Diego', password:'123', 
+        rol: 'usuario'
+    },
+    {
+        nombre:'Laura', password:'123', 
+        rol: 'usuario'
+    },
+    {
+        nombre:'Admin', password:'codercoder', 
+        rol: 'admin'
+    },
+]
+
+// excluir carpetas de nodemon:
+// CLI:
+// nodemon --ignore ./src/sessions/ ./src/appSession.js
+// package.json:
+  "scripts": {
+    "start": "nodemon --ignore ./src/sessions/ ./src/appSession.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+
+
+// zona horaria en NodeJS
+const nDate = new Date().toLocaleString('es-AR', {
+    timeZone: 'America/Argentina/Buenos_Aires'
+});
+
+
+// timestamps en mongoose (createdAt y updatedAt)
+const schema=moongoose.Schema({
+
+},{timestamps:true})
+
+// Strings de conexión a DB:
+// mongoose.connect('mongodb://127.0.0.1:27017/pruebas_mongo')
+// 'mongodb+srv://coderhouse:coderhouse@cluster0.v8ivmdl.mongodb.net/?retryWrites=true&w=majority&dbName=pruebas_mongo2'
+// mongoose.connect('mongodb+srv://coderhouse:coderhouse@cluster0.wpxpupc.mongodb.net/?retryWrites=true&w=majority&dbName=pruebas_mongo2')
+// mongoose.connect('mongodb+srv://diepol:CoderCoderCoder@cluster0.4oxwh3e.mongodb.net/?retryWrites=true&w=majority&dbName=pruebas_Coder')
+mongoose.connect('mongodb+srv://coderhouse:coderhouse@cluster0.v8ivmdl.mongodb.net/?retryWrites=true&w=majority&dbName=base_clase9',{
+},(err)=>{
+    if(err){
+        console.log(`Error de conexión a la base de datos :( ${err}`)
+    }else{
+        console.log(`Conexión a DB establecida...!!!`)
+    }
+})
+
+
+
+// envio de datos vía script de JavaScript:
+const form  = document.getElementById('loginForm');
+form.addEventListener('submit',evt=>{
+    evt.preventDefault();
+    const data = new FormData(form);
+    const obj = {};
+    data.forEach((value,key)=>obj[key]=value);
+    fetch('/api/sessions/login',{
+        method:'POST',
+        body:JSON.stringify(obj),
+        headers: {
+            'Content-Type':'application/json'
+        }
+    }).then(result=>result.json()).then(json=>console.log(json));
+})
+
+
+
+// especificar colección en el esquema:
+const usuariosEsquema= new Schema({
+    nombre: String,
+    apellido: String,
+    codigo: Number,
+
+},{collection:'usuariosBig'});
+
+
+
+// Configurar express-handlebars para que tome lectura de Atlas
+app.engine('handlebars', engine({
+    runtimeOptions: {
+        allowProtoPropertiesByDefault: true,
+        allowProtoMethodsByDefault: true,
+    },
+}));
+
+
+// variables como objects keys:
+var foo = 'Hello',
+    bar = 'World';
+ 
+var myObj = {};
+myObj[foo] = bar; 

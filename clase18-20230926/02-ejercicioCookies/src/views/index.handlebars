@@ -1,0 +1,30 @@
+<h2>Cookies</h2>
+<hr>
+<form action="/set" method="post">
+
+    {{#if error}}
+        <div style="color:red; font-weight: bolder">Complete los datos</div>
+    {{/if}}
+
+    {{#if ok}}
+        <div style="color:green; font-weight: bolder">Cookie generada...!!!</div>
+    {{/if}}
+
+    <input type="text" name="nombre" placeholder="nombre">
+    <input type="email" name="email" placeholder="email">
+
+    <input type="submit" value="Crear Cookie">
+</form>
+
+<br>
+<button onclick="ver()">Ver Cookie</button>
+
+<script>
+    async function ver(){
+        let resultado=await fetch('/get')
+        let cookie=await resultado.text()
+
+        console.log(cookie)
+    }
+
+</script>
