@@ -2,7 +2,12 @@
 <hr>
 <form action="/api/sessions/registro" method="post">
 
-    {{#if error}}
+    {{!-- {{#if error}}
+        <div class="error">{{errorDetalle}}</div>
+    {{/if}} --}}
+
+    {{!-- [fix]: Con pasar solo errorDetalle, nos basta para saber si mostrar o no la alerta --}}
+    {{#if errorDetalle}}
         <div class="error">{{errorDetalle}}</div>
     {{/if}}
 

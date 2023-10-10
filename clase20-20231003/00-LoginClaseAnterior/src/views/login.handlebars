@@ -2,11 +2,21 @@
 <hr>
 <form action="/api/sessions/login" method="post">
 
-    {{#if error}}
+    {{!-- {{#if error}}
         <div class="error">{{errorDetalle}}</div>
     {{/if}}
-
+    
     {{#if usuarioCreado}}
+        <div class="success">Se ha creado correctamente el usuario {{usuarioCreadoDetalle}}</div>
+    {{/if}} --}}
+
+    {{!-- [fix]: Con pasar solo errorDetalle o ver si el usuario fue creado exitosamente, nos basta para saber si mostrar o no la alerta --}}
+
+    {{#if errorDetalle}}
+        <div class="error">{{errorDetalle}}</div>
+    {{/if}}
+    
+    {{#if usuarioCreadoDetalle}}
         <div class="success">Se ha creado correctamente el usuario {{usuarioCreadoDetalle}}</div>
     {{/if}}
 
