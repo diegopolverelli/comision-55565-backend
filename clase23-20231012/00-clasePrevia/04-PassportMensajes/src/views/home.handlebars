@@ -1,0 +1,81 @@
+<h2>Login Page</h2>
+<hr>
+<form action="/login" method="post">
+    <input type="email" id="email" name="email" placeholder="Ingrese su email">
+    <input type="password" id="password" name="password" placeholder="Ingrese su contraseña">
+
+    <input type="submit" value="Login" id="btnSubmit">
+
+</form>
+<br>
+<div id="mensaje"></div>
+<br>
+<hr>
+<a href="/usuario" id="linkUsuario">Página Usuarios</a>
+
+<script>
+    /*
+    let btnSubmit=document.getElementById('btnSubmit')
+    let inputEmail=document.getElementById('email')
+    let inputPassword=document.getElementById('password')
+    let divMensaje=document.getElementById('mensaje')
+    let linkUsuario=document.getElementById('linkUsuario')
+
+    btnSubmit.addEventListener("click",async(evt)=>{
+        evt.preventDefault()
+
+        if(inputEmail.value.trim().length===0 || inputPassword.value.trim().length===0){
+            alert('Complete los datos...!!!')
+            return
+        }
+
+        let body={
+            email: inputEmail.value.trim(),
+            password: inputPassword.value.trim()
+        }
+
+        let resultado=await fetch('/login', {
+            method:'post',
+            headers:{
+                'Content-Type':'application/json'
+            },
+            body:JSON.stringify(body)
+        })
+        console.log(resultado)
+        if(resultado.status===200){
+            let datos=await resultado.json()
+            console.log(datos)
+
+            localStorage.setItem('coderToken',datos.token)
+            divMensaje.innerHTML=`Usuario logueado OK. ${datos.usuarioLogueado.nombre}`
+        }else{
+            divMensaje.innerHTML='Error de login'
+        }
+
+    }) // fin fn btnSubmit
+
+    linkUsuario.addEventListener("click",async(evt)=>{
+        evt.preventDefault()
+
+        let resultado= await fetch('/usuario',{
+            method:'get',
+            headers:{
+                'Content-Type':'application/json',
+                'Authorization':'Bearer '+localStorage.getItem('coderToken')
+            }
+        })
+        let datos=await resultado.json()
+        console.log(resultado)
+        console.log(datos)
+
+        if(resultado.status===200){
+            divMensaje.innerHTML=datos.mensaje
+        }else{
+            divMensaje.innerHTML=datos.error
+        }
+
+    }) // fin fn linkUsuario
+
+    */
+
+</script>
