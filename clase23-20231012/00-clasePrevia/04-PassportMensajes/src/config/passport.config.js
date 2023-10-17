@@ -24,6 +24,7 @@ export const inicializarPassport=()=>{
         (contenidoJwt ,done)=>{
             try {
                 if(contenidoJwt.usuario.nombre==='Juan'){
+                    // cuando intenta ingresar a su perfil el usuario Juan
                     return done(null, false, {messages:'El usuario Juan esta temporalmente inhabilitado', detalle:'Contacte a RRHH'})
                 }
                 return done(null, contenidoJwt.usuario)

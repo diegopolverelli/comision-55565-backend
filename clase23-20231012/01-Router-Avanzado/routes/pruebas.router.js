@@ -11,6 +11,7 @@ router.get('/',(req,res)=>{
 });
 
 router.get('/:numero([0-9-.]+)',(req,res)=>{
+    // el simbolo + indica que puede haber varias ocurrencias/repeticiones de [0-9-.] 
     
     res.setHeader('Content-Type','application/json');
     res.status(200).json({
@@ -35,6 +36,7 @@ let errores={
 }
 
 router.param('codigo',(req, res, next, codigo)=>{
+    // para evitar la seccion de errores comentados en los endpoints de abajo 
     let detalleError='Error desconocido'
     if(errores[codigo]){
         detalleError=errores[codigo]
@@ -72,5 +74,6 @@ router.get('/error/:usuario/:codigo',(req,res)=>{
 
 
 router.get('*',(req, res)=>{
+    // cualquier otro endpoint que no haya sido declarado
     res.status(404).send('Page not found')
 })

@@ -36,7 +36,7 @@ export const validaJWT=(req, res, next)=>{
 
 
 
-export const passportCall=(estrategia)=>{
+export const passportCall = estrategia => {
     return async function(req, res, next){
         passport.authenticate(estrategia, function(err, usuario, info){
             if(err) return next(err)

@@ -1,7 +1,5 @@
 import { MiRouter } from "./router.js";
 
-
-
 export class UsuariosRouter extends MiRouter{
 
     mid01(req, res, next){

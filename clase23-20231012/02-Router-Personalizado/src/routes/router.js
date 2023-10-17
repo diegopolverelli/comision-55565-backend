@@ -12,7 +12,13 @@ export class MiRouter{
         return this.router
     }
     
-    get(ruta, permisos, ...funciones){ // operador rest
+    get(ruta, permisos, ...funciones){ 
+        // ... operador rest -> 
+        // cuando se lo llama a get desde el router o una clase que hereda el router 
+        // por ej: get(1,2,3,4,5)
+        // 1 -> ruta
+        // 2,3,4,5 -> a permisos
+    
         console.log({ruta, funciones})
         this.router.get(ruta, this.misRespuestas, this.acceso(permisos) , funciones)
     }
@@ -42,6 +48,9 @@ export class MiRouter{
     }
 
     acceso(permisos=['PUBLIC']){
+        // Permite poder trabajar varios permisos
+        // Es decir, a que endpoints van a poder acceder Administradores, usuarios
+        // o cualquiera
         return (req, res, next)=>{
             if(permisos.includes('PUBLIC')) return next()
 

@@ -77,9 +77,10 @@ app.post('/login', (req, res) => {
 
 // app.get('/usuario', validaJWT,(req, res) => {
 // app.get('/usuario', passport.authenticate('jwt',{ session:false }),(req, res) => {
+    
+// Aplico el passport call aca
 app.get('/usuario', passportCall('jwt'),(req, res) => {
-
-
+    
     res.setHeader('Content-Type', 'application/json');
     res.status(200).json({
         mensaje: 'Bienvenido...!!!',
