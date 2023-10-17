@@ -2,7 +2,7 @@ import express from 'express';
 import fs from 'fs'
 import path from 'path'
 import { engine } from 'express-handlebars';
-import cookieParser from 'cookie-parser'
+import cookieParser from 'cookie-parser'; // importo cookie parser porque ahora voy a enviar el token a traves de una cookie 
 import __dirname, { generaJWT, validaJWT } from './utils.js';
 const PORT = 3000;
 
@@ -14,7 +14,7 @@ app.set('views', path.join(__dirname, '/views'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('./src/public'))
-app.use(cookieParser())
+app.use(cookieParser()); // inicializacion de cookie parser
 
 app.get('/', (req, res) => {
     // res.setHeader('Content-Type', 'text/html');
@@ -60,15 +60,15 @@ app.post('/login', (req, res) => {
 
     let token = generaJWT(usuario)
 
-    res.cookie('coderCookie',token,{
+    res.cookie('coderCookie', token, {
         maxAge:1000*60*60,
-        httpOnly:true
+        httpOnly:true // con esto evitamos que la cookie pueda ser accedida con la instruccion document.cookie
     })
+
     return res.status(200).json({
         usuarioLogueado: usuario,
         token
     })
-
 })
 
 app.get('/usuario', validaJWT,(req, res) => {

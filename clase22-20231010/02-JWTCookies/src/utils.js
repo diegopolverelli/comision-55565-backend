@@ -17,6 +17,8 @@ export const validaJWT=(req, res, next)=>{
 
     // let token=authHeader.split(' ')[1]
 
+    // Ahora, busca el token en las cookies
+
     if(!req.cookies.coderCookie) return res.status(400).json({error:'Error - no existe token'})
 
     console.log("Recupero token, ahora desde una Cookie...!!!")

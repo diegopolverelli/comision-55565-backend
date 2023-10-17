@@ -12,20 +12,26 @@ const PRIVATE_KEY='secretPass'
 export const generaJWT=(usuario)=>jwt.sign({usuario},PRIVATE_KEY,{expiresIn:'1h'})
 
 export const validarJWT=(req, res, next)=>{
-    // Bearer token  authorization
-    let authHeader=req.headers.authorization
-    if(!authHeader) return res.status(401).json({error:"No existe token"})
+     // Bearer token  authorization
+    
+     //  Queremos ver si existe la cabecera de autorizacion. Si no existe se arroja error
+     // y si existe, tomar el Bearer token, quedarnos solo con el token y pasarlo por una 
+     // funcion de validacion del objeto JWT 
+    let authHeader=req.headers.authorization; // se chequea si existe el header authorization
+    if(!authHeader) return res.status(401).json({error:"No existe token"});
 
-    let token=authHeader.split(' ')[1]
+    // authHeader retorna Bearer token. Entonces separo el string con split cada vez que
+    // hay un espacio (con esto obtengo [Bearer, token]) y como quiero el token
+    // accedo a la posicion 1
+    let token = authHeader.split(' ')[1];  
 
-    jwt.verify(token, PRIVATE_KEY, (error, credenciales)=>{
+    jwt.verify(token, PRIVATE_KEY, (error, credenciales) => {
         if(error) return res.status(401).json({error:"Token invalido"})
 
-        console.log(credenciales)
+        console.log(credenciales); // credenciales es el contenido del token
 
-        req.user=credenciales.usuario
+        req.user = credenciales.usuario;
 
-        next()
+        next();
     })
-
 } // fin validarJWT

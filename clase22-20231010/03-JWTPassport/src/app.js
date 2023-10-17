@@ -17,6 +17,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('./src/public'))
 app.use(cookieParser())
+
 inicializarPassport()
 app.use(passport.initialize())
 
@@ -76,6 +77,7 @@ app.post('/login', (req, res) => {
 })
 
 // app.get('/usuario', validaJWT,(req, res) => {
+// utilizamos la estrategia imlementada con passport
 app.get('/usuario', passport.authenticate('jwt',{ session:false}),(req, res) => {
 
 

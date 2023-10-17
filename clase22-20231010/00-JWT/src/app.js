@@ -66,9 +66,7 @@ app.post('/login',(req,res)=>{
 
 })
 
-app.get('/usuario',validarJWT,(req,res)=>{
-
-
+app.get('/usuario', validarJWT, (req, res) => {
     res.setHeader('Content-Type','application/json');
     res.status(200).json({
         mensaje:'Bienvenido...!!!',

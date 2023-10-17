@@ -13,6 +13,17 @@
 <hr>
 <a href="/usuario" id="linkUsuario">Página Usuarios</a>
 
+{{!-- La idea es loguearse como un usuario. Una vez logueado, 
+accedemos al token generado y al clickear la "Pagina usuarios"
+queremos trasladar el token a una cabecera y que actue cuando
+hacemos click en "Pagina usuarios"  --}}
+
+{{!-- Para ello, vamos a utilizar el local Storage para almacenar el token --}}
+
+{{!-- Por lo tanto, vamos a querer que en lugar que el HTML realice el post
+lo pueda controlar yo y cuando me devuelva el token, guardarlo en el 
+local storage --}}
+
 <script>
     let btnSubmit=document.getElementById('btnSubmit')
     let inputEmail=document.getElementById('email')
@@ -20,7 +31,7 @@
     let divMensaje=document.getElementById('mensaje')
     let linkUsuario=document.getElementById('linkUsuario')
 
-    btnSubmit.addEventListener("click",async(evt)=>{
+    btnSubmit.addEventListener("click", async (evt) => {
         evt.preventDefault()
 
         if(inputEmail.value.trim().length===0 || inputPassword.value.trim().length===0){
@@ -28,52 +39,54 @@
             return
         }
 
-        let body={
+        let body = {
             email: inputEmail.value.trim(),
             password: inputPassword.value.trim()
         }
 
-        let resultado=await fetch('/login', {
+        let resultado = await fetch('/login', {
             method:'post',
             headers:{
                 'Content-Type':'application/json'
             },
             body:JSON.stringify(body)
         })
-        console.log(resultado)
-        if(resultado.status===200){
+
+        console.log(resultado) // obtiene la informacion de la promesa
+        
+        if(resultado.status === 200){
             let datos=await resultado.json()
-            console.log(datos)
+            console.log(datos) // datos devuelve un objeto con dos props: usuarioLogueado y token
+            // datos.usuarioLogueado contiene el id, nombre, email y password
 
             localStorage.setItem('coderToken',datos.token)
-            divMensaje.innerHTML=`Usuario logueado OK. ${datos.usuarioLogueado.nombre}`
+            divMensaje.innerHTML = `Usuario logueado OK. ${datos.usuarioLogueado.nombre}`
         }else{
             divMensaje.innerHTML='Error de login'
         }
 
     }) // fin fn btnSubmit
 
-    linkUsuario.addEventListener("click",async(evt)=>{
-        evt.preventDefault()
+    // Codigo para cuando se clickea pagina de usuario una vez que esta logeado
+    linkUsuario.addEventListener("click", async (evt) => {
+        evt.preventDefault();
 
-        let resultado= await fetch('/usuario',{
+        let resultado = await fetch('/usuario',{
             method:'get',
             headers:{
                 'Content-Type':'application/json',
-                'Authorization':'Bearer '+localStorage.getItem('coderToken')
+                'Authorization':'Bearer ' + localStorage.getItem('coderToken')
             }
         })
-        let datos=await resultado.json()
+
+        let datos = await resultado.json()
         console.log(resultado)
         console.log(datos)
 
-        if(resultado.status===200){
-            divMensaje.innerHTML=datos.mensaje
+        if(resultado.status === 200){
+            divMensaje.innerHTML = datos.mensaje
         }else{
-            divMensaje.innerHTML=datos.error
+            divMensaje.innerHTML = datos.error
         }
-
     }) // fin fn linkUsuario
-
-
 </script>
