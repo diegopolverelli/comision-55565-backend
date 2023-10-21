@@ -1,0 +1,41 @@
+<h2>Pagina Usuarios</h2>
+<hr>
+<ul>
+    {{#each usuarios}}
+        <li>
+            Nombre: {{this.nombre}} - correo electrónico <strong>{{this.email}}</strong>
+        </li>
+    {{/each}}
+</ul>
+
+<hr>
+<a href="/perfil?page=1">Pág.1</a>
+
+{{#if hasPrevPage}}
+    <a href="/perfil?page={{prevPage}}">Ant.</a>
+{{else}}
+    <span>Ant.</span>
+{{/if}}
+
+<input type="text" style="width: 40px" disabled="true" value="{{page}}">
+
+{{#if hasNextPage}}
+    <a href="/perfil?page={{nextPage}}">Sig.</a>
+{{else}}
+    <span>Sig.</span>
+{{/if}}
+
+<a href="/perfil?page={{totalPages}}">Ult.Pág</a>
+<hr>
+<a href="/api/sessions/logout" id="logout">Logout</a>
+
+{{!-- <script>
+    let linkLogout=document.getElementById("logout")
+
+    linkLogout.addEventListener("click",(evt)=>{
+        evt.preventDefault()
+
+        document.cookie="coderCookie=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+        window.location.href="/login"
+    })
+</script> --}}
