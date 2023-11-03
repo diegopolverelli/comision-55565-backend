@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Page</title>
+</head>
+<body>
+    <h2>Contact Page</h2>
+    <form action="/api/contactos" method="post">
+        First Name: <input type="text" name="first_name" id="first_name">
+        Last Name: <input type="text" name="last_name" id="last_name">
+        Phone Number: <input type="text" name="phone_number" id="phone_number">
+        Email: <input type="email" name="email" id="email">
+        <input type="submit" value="Add Contact" id="submitButton">
+    </form>
+    <br>
+	<div id="mensaje" style="color:green;"></div>
+	<div id="error" style="color:red;"></div>
+
+	<script>
+		// const urlParams = new URLSearchParams(window.location.search);
+		// const mensaje = urlParams.get('mensaje');
+		// const error = urlParams.get('error');
+
+        const inputFirstName=document.getElementById("first_name")
+        const inputLastName=document.getElementById("last_name")
+        const inputPhoneNumber=document.getElementById("phone_number")
+        const inputEmail=document.getElementById("email")
+
+        let submitButton=document.getElementById("submitButton")
+        submitButton.addEventListener("click",async(e)=>{
+            e.preventDefault()
+            let body={
+                first_name:inputFirstName.value, 
+                last_name:inputLastName.value,
+                phone_number:inputPhoneNumber.value,
+                email:inputEmail.value
+            }
+            let respuesta=await fetch('/api/contactos',{
+                method:'post',
+                headers:{"Content-Type":"application/json"},
+                body:JSON.stringify(body)
+            })
+            let datos=await respuesta.json()
+            const divMensaje = document.getElementById('mensaje');
+            const divError = document.getElementById('error');
+            if(respuesta.status<400){
+                divMensaje.innerHTML = datos.mensaje;
+                divError.innerHTML=''
+            }else{
+                divError.innerHTML = datos.error;
+                divMensaje.innerHTML=''
+            }
+        })
+	</script>    
+</body>
+</html>
