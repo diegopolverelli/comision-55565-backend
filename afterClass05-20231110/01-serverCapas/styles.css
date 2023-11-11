@@ -1,0 +1,75 @@
+/* Estilos para encabezados */
+body {
+    background-color: rgb(177, 212, 213);
+}
+
+h1 {
+    color: #333;
+    font-size: 2em;
+  }
+  
+  h2 {
+    color: #555;
+    font-size: 1.5em;
+  }
+  
+  h3 {
+    color: #777;
+    font-size: 1.2em;
+  }
+  
+  h4 {
+    color: #474444;
+    font-size: 1em;
+  }
+  
+  /* Estilos para listas */
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  li {
+    margin-bottom: 5px;
+  }
+  
+  /* Estilos mejorados para listas */
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  
+  ul li {
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    margin-bottom: 8px;
+    padding: 10px;
+    color: #333;
+  }
+  
+  /* Estilos para botones */
+  button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  /* Estilos para contenedor */
+  .div.contenedor {
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin: 10px 0;
+  }
+  
+  /* Estilos para la tarjeta */
+  .div.orden {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
