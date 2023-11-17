@@ -1,0 +1,16 @@
+{
+  "name": "02-yarn",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "cookie-parser": "^1.4.6",
+    "express": "^4.18.2",
+    "pruebafuncionesdiego1990": "^1.0.4"
+  },
+  "scripts": {
+    "start": "node ./src/app.js",
+    "dev": "node --watch ./src/app.js"
+  }
+}

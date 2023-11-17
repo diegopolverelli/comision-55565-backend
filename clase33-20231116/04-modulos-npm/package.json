@@ -1,0 +1,13 @@
+{
+  "name": "pruebafuncionesdiego1990",
+  "version": "1.0.4",
+  "type": "module",
+  "description": "",
+  "main": "./src/app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Comision 55565 - Curso Backend",
+  "license": "ISC"
+}
