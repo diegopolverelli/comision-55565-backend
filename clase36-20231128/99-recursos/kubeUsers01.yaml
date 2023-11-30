@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kubeusers
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: kubeusers
+  template:
+    metadata:
+      labels:
+        app: kubeusers
+    spec:
+      containers:
+        - name: kubecontainer
+          image: diegopolverelli/loginregister:1.0.0
+          ports:
+            - containerPort: 3000
+          env:
+            - name: MONGO_URL
+              value: mongodb+srv://coderhouse:coderhouse@cluster0.v8ivmdl.mongodb.net/?retryWrites=true&w=majority
+            - name: DB_NAME
+              value: clase36
+          imagePullPolicy: Always
