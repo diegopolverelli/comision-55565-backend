@@ -1,0 +1,20 @@
+{
+  message: 'No se completaron los datos',
+  level: 'warn',
+  timestamp: '2023-12-01T01:32:48.755Z'
+}
+{
+  message: 'No se completaron los datos',
+  level: 'warn',
+  timestamp: '2023-12-01T01:33:23.000Z'
+}
+{
+  message: 'No se completaron los datos',
+  level: 'warn',
+  timestamp: '2023-12-01T01:33:42.143Z'
+}
+{
+  message: 'No se completaron los datos',
+  level: 'warn',
+  timestamp: '2023-12-01T01:35:51.672Z'
+}
