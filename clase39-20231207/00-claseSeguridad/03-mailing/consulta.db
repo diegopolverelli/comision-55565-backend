@@ -1,0 +1,7 @@
+input 200' or '1'='1  vari codigo
+200' or delete * from
+
+query="select * from tabla1 where id='"+codigo+"'"
+
+select * from tabla1 where id='200' or '1'='1'
+select * from tabla1 where id=(select )
