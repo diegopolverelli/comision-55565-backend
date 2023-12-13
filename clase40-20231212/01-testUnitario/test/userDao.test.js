@@ -1,0 +1,65 @@
+import Users from "../src/dao/Users.dao.js";
+import mongoose from "mongoose";
+import Assert from 'assert'
+import {describe, it} from 'mocha'
+
+await mongoose.connect('mongodb+srv://coderhouse:coderhouse@cluster0.5rl5n6j.mongodb.net/?retryWrites=true&w=majority&dbName=clase40')
+
+const assert=Assert.strict
+
+
+describe("Prueba al DAO de usuarios del proyecto AdoptMe", function(){
+
+    this.timeout(5000)
+
+    before(async function(){
+        this.usersDao=new Users()
+    })
+
+    beforeEach(async function(){
+        await mongoose.connection.collection('users').deleteMany({email:'mjuarez2023@test.com'})
+    })
+
+    after(async function(){
+        await mongoose.connection.collection('users').deleteMany({email:'mjuarez2023@test.com'})
+    })
+
+    it("El dao debe devolver un array al ejecutar el método get", async function(){
+
+        let resultado=await this.usersDao.get()
+
+        assert.strictEqual(Array.isArray(resultado), true)
+
+    })
+
+    it("El dao graba un usuario con su método save", async function(){
+
+        // first_name, last_name, email, password
+        let usuarioPrueba={
+            first_name:"Miguel", last_name:"Juarez", email:"mjuarez2023@test.com", password:"123"
+        }
+
+        let resultado=await this.usersDao.save(usuarioPrueba)
+
+        assert.ok(resultado._id)
+        assert.ok(resultado.first_name)
+        assert.equal(resultado.first_name, "Miguel")
+        assert.equal(resultado.last_name, "Juarez")
+
+    })
+
+    it("El dao al grabar usuarios con el metodo save, genera una propiedad pets de tipo array", async function(){
+
+        // first_name, last_name, email, password
+        let usuarioPrueba={
+            first_name:"Miguel", last_name:"Juarez", email:"mjuarez2023@test.com", password:"123"
+        }
+
+        let resultado=await this.usersDao.save(usuarioPrueba)
+
+        assert.strictEqual(Array.isArray(resultado.pets), true)
+
+
+    })
+
+})
