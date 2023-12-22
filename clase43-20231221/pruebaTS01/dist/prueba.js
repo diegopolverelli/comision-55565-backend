@@ -1,0 +1,11 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const Persona_1 = require("./Persona");
+console.log("Hola, como va???");
+let nombre;
+nombre = "Rafael";
+console.log(nombre);
+nombre = "Martina";
+console.log(nombre);
+let persona01 = new Persona_1.Persona("Juan", "Perez");
+persona01.imprimeNombre();
