@@ -1,0 +1,21 @@
+paths:
+  /api/products/prueba/:
+    get:
+      summary: Emite un texto de prueba
+      tags:
+        - Products
+      responses:
+        "200":
+          description: "Devuelve mensaje: Server on line...!!!"
+          content:
+            text/plain:
+              schema:
+                type: string
+  /api/products/:
+    get:
+      summary: Obtiene todos los productos
+      tags:
+        - Products
+      responses:
+        "200":
+          description: Los productos fueron obtenidos OK desde la DB
