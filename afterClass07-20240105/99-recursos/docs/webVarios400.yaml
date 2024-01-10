@@ -1,0 +1,149 @@
+paths:
+  /:
+    get:
+      summary: Home Page
+      description: |
+        Endpoint para obtener una página web en formato HTML.
+
+        Ejemplo de contenido HTML devuelto:
+        ```html
+        <html>
+          <head>
+            <title>Mi Página Web</title>
+          </head>
+          <body>
+            <h1>Hola, mundo!</h1>
+            <p>Este es un ejemplo de contenido HTML devuelto por la API.</p>
+          </body>
+        </html>
+        ```
+      produces:
+        - "text/html"
+      responses:
+        "200":
+          description: "Home Page"
+          content: 
+            text/html:
+              schema:
+                type: string
+                example: |
+                  ```html
+                  <html>
+                    <head>
+                      <title>Mi Página Web</title>
+                    </head>
+                    <body>
+                      <h1>Hola, mundo!</h1>
+                      <p>Este es un ejemplo de contenido HTML devuelto por la API.</p>
+                    </body>
+                  </html>
+                  ```
+  /api/sessions/login/:
+    post:
+      summary: Permite logear un usuario en el sistema
+      tags:
+        - Sessions
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#components/requestBodies/crearUsuario'
+      responses:
+        "400":
+          description: "Error, complete los datos"
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - $ref: '#components/schemas/error1'
+                  - $ref: '#components/schemas/error2'
+        "200":
+          description: "Devuelve un json que indica que el usuario se logueo OK, y sus datos"
+          content:
+            application/json:
+              schema:
+                $ref: '#components/schemas/User'
+components:
+  schemas:
+    login:
+      type: object
+      properties:
+        status:
+          type: string
+          description: Login Correcto...!!!
+        payload:
+          type: object
+          properties:
+            _id: 
+              type: ObjectId
+              description: id de Mongo Atlas
+            nombre:
+              type: string
+              description: nombre del usuario logeado
+            apellido:
+              type: string
+              descripcion: apellido del usuario logueado  
+      example:
+        error: Faltan datos
+    error1:
+      type: object
+      properties:
+        error:
+          type: string
+          description: Faltan datos
+      example:
+        error: Faltan datos
+    error2:
+      type: object
+      properties:
+        error:
+          type: string
+          description: No existe el usuario con email diego@test.com
+      example:
+        error: No existe el usuario con email diego@test.com
+    User:
+      type: object
+      properties:
+        _id:
+          type: ObjectId
+          description: Id autogenerado de mongo
+        first_name:
+          type: string
+          description: Nombre del usuario
+        last_name:
+          type: string
+          description: Apellido...    
+        email:
+          type: string
+          description: Correo electronico
+        password: 
+          type: string
+          description: contraseña de acceso  
+      example:
+        _id: ObjectId("60acc54545c8e82e0475f73a")
+        first_name: Diego
+        last_name: Polverelli
+        email: diegopolverelli@hotmail.com
+        password: 123
+  requestBodies:
+    crearUsuario:
+      type: object
+      properties:
+        first_name:
+          type: string
+          description: Nombre de usurio
+        last_name:
+          type: string
+          description: Apellido
+        email:
+          type: string
+          description: Correo del usuario
+        password:
+          type: string
+          description: Contraseña del usuario
+      example:
+        first_name: Diego
+        last_name: Polverelli
+        email: diego@hotmail.com
+        password: coder123          

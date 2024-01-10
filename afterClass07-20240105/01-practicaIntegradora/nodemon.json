@@ -1,0 +1,4 @@
+{
+    "ext":"js, yaml",
+    "ingnore": ["node_modules/"]
+}
